@@ -1,0 +1,10 @@
+.main{
+    padding: 15px;
+    display: flex;
+    gap: 25px;
+    justify-Content:space-between;
+}
+.down{
+    display: flex;
+    gap: 25px;
+}
