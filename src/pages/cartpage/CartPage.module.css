@@ -1,0 +1,17 @@
+.product{
+    display: flex;
+  justify-content: space-between;
+   gap:20px;
+     padding: 20px;
+     width: 100%
+ 
+ }
+ .product>div{
+  border: 2px solid;
+  height: 100%;
+  width: 50%;
+ }
+ .product>div~div{
+     width: 30%;
+     border: none;
+ }

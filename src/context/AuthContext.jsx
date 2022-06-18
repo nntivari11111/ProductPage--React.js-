@@ -2,7 +2,7 @@ import React, {useEffect } from "react";
 import {createContext} from "react";
 import {useState} from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export const AuthContext = createContext();
@@ -10,8 +10,8 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+
+ 
   const login = (email, password) => {
     axios
       .post("https://reqres.in/api/login", { email, password })
@@ -28,11 +28,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuth) {
-      navigate(from, { replace: true });
+      navigate("/cart");
     } else {
-      navigate("/login");
+      navigate("/");
     }
-  }, [isAuth, from, navigate]);
+  }, [isAuth]);
 
   return (
     <AuthContext.Provider value={{ isAuth, login, logout }}>

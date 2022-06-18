@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import style from "./product.module.css";
-import { CartContext } from "../../../context/CartContext";
-const Product = ({ id, name,description}) => {
+import style from "./CartPage.module.css";
+import { CartContext } from "../../context/CartContext";
+const CartPage = ({ id,name,description}) =>{
   const {
     getCartItemCountByProductId,
     addItemToCart,
@@ -48,9 +48,35 @@ const Product = ({ id, name,description}) => {
          Add
        </button>
        
-      </div> 
+      </div>
+      <div>
+      {count === 0 ? (
+      <h1></h1>
+      ) : (
+        <div>
+          <button
+          
+            onClick={() => handleUpdate(count + 1)}
+          >
+            +
+          </button>
+          <span>{count}</span>
+          <button
+            onClick={() => handleUpdate(count - 1)}
+          >
+            -
+          </button>
+          <button
+            
+            onClick={handleDelete}
+          >
+            Remove
+          </button>
+        </div>
+      )}
+      </div>
     </div>
   );
 };
 
-export default Product;
+export default CartPage;

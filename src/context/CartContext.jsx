@@ -49,6 +49,7 @@ export const CartProvider = ({ children }) => {
             count: newCount,
           })
           .then(({ data }) => {
+            console.log(data+"ddd")
             let updatedCartItems = cartItems.map((cI) => {
               if (cI.id === item.id) {
                 return data;

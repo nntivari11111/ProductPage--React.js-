@@ -7,8 +7,7 @@ const Navbar = () => {
   const { isAuth, logout } = useContext(AuthContext);
   const { cartItemsCount } = useContext(CartContext);
   const navigate = useNavigate();
-  const handleLoginClick = () => {
-    
+  const handleLoginClick = () => {  
     if (isAuth) {
       logout();
     } else {
@@ -16,19 +15,22 @@ const Navbar = () => {
     }
   };
   return (
-    <div data-cy="navbar"  className={style.main} >
+    <div className={style.main} >
+     
       <div className={style.down} >
-        <Link data-cy="navbar-home-link" to="/">
-          Logo
+      <h3>Navbar</h3>
+        <Link  to="/">
+         Home
         </Link>
-      </div>
-      <div  className={style.down}>
-        <div data-cy="navbar-cart-items-count">
-          Cart: {cartItemsCount && `(${cartItemsCount})`}
-        </div>
-        <button data-cy="navbar-login-logout-button" onClick={handleLoginClick}>
+        <button  onClick={handleLoginClick}>
           {isAuth ? "Logout" : "Login"}
         </button>
+      </div>
+      <div >
+        <div >
+        <Link  to="/cart"> Cart: {cartItemsCount && `(${cartItemsCount})`} </Link>
+        </div>
+       
       </div>
     </div>
   );

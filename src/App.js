@@ -4,6 +4,7 @@ import RequiredAuth from "./hoc/RequiredAuth";
 import Login from "./pages/Login";
 import { Navbar } from "./components/Navbar";
 import Home from "./pages/Home";
+import CartPages from "./pages/CartPages";
 
 function App() {
   return (
@@ -12,14 +13,21 @@ function App() {
       <Routes>
         <Route path="login" element={<Login />} />
         <Route
-          path=""
+          path="/"
           element={
-            <RequiredAuth>
-              <Home />
-            </RequiredAuth>
+            <Home />   
+          }
+        />
+        <Route
+          path="cart"
+          element={
+             <RequiredAuth>
+           <CartPages/>
+             </RequiredAuth>
           }
         />
       </Routes>
+         
     </div>
   );
 }

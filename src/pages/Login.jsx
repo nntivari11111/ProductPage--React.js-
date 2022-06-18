@@ -34,7 +34,7 @@ const Login = () => {
         }
       >
         <input
-          data-cy="login-email"
+        
           name="email"
           type="email"
           placeholder="Enter Email"
@@ -42,14 +42,14 @@ const Login = () => {
           onChange={hanldeChange}
         />
         <input
-          data-cy="login-password"
+    
           name="password"
           type="password"
           placeholder="Enter Password..."
           value={loginCreds.password}
           onChange={hanldeChange}
         />
-        <button data-cy="login-submit" type="submit">
+        <button type="submit">
           Login
         </button>
       </form>

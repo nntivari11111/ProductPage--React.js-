@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-import style from "./products.module.css";
+import style from "./CartPages.module.css";
 import axios from "axios";
-import {Product} from "./Product";
+import CartPage from "./cartpage/CartPage";
 
-const Products = () => {
+const CartPages = () => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/products").then((res) => {
+    axios.get("http://localhost:8080/cartItems").then((res) => {
       setItem(res.data);
     });
   }, []);
   return (
     <div>
-      <h1>Products</h1>
+      <h1>Cart Items</h1>
       <div className={style.products}>
       {item.map((item) => (
-          <Product key={item.id} {...item} />
+          <CartPage key={item.id} {...item} />
         ))}
       </div>
      
@@ -25,4 +25,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default CartPages;

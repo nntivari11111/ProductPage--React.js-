@@ -49,16 +49,22 @@
   "cartItems": [
     {
       "productId": 1,
-      "count": 3,
+      "name": "Product 1",
+      "description": "A Product that is 1st in the list products",
+      "count": 1,
       "id": 1
     },
     {
-      "productId": 2,
-      "count": 4,
+      "productId": 1,
+      "name": "Product 1",
+      "description": "A Product that is 1st in the list products",
+      "count": 1,
       "id": 2
     },
     {
-      "productId": 9,
+      "productId": 2,
+      "name": "Product 2",
+      "description": "A Product that is 2nd in the list of  products",
       "count": 1,
       "id": 3
     }

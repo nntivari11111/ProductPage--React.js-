@@ -6,9 +6,9 @@ import { AuthContext } from "../context/AuthContext";
 const RequiredAuth = ({ children }) => {
   const { isAuth } = useContext(AuthContext);
   const location = useLocation();
-
+    
   if (isAuth) return children;
-  return <Navigate to="/login" state={{ from: location }}/>;
+   return <Navigate to="/login" state={{ from: location }}/>;
 };
 
 export default RequiredAuth;
