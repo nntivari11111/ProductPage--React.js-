@@ -8,7 +8,7 @@ const Products = () => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/products").then((res) => {
+    axios.get("https://rct-101-c4.herokuapp.com/products").then((res) => {
       setItem(res.data);
     });
   }, []);

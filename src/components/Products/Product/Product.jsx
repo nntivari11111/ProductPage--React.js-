@@ -24,7 +24,7 @@ const Product = ({ id, name,description}) => {
     if (id) {
       setCount(getCartItemCountByProductId(id));
     }
-  }, [id, getCartItemCountByProductId]);
+  }, [id,getCartItemCountByProductId]);
 
   return (
     <div

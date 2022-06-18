@@ -8,7 +8,7 @@ const CartPages = () => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/cartItems").then((res) => {
+    axios.get("https://rct-101-c4.herokuapp.com/cartItems").then((res) => {
       setItem(res.data);
     });
   }, []);

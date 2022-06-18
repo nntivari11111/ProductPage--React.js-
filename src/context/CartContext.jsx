@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
 
   const addItemToCart = async (cartInfo) => {
     return axios
-      .post("http://localhost:8080/cartItems", { ...cartInfo })
+      .post("https://rct-101-c4.herokuapp.com/cartItems", { ...cartInfo })
       .then(({ data }) => {
         setCartItems([...cartItems, data]);
       });
@@ -28,9 +28,10 @@ export const CartProvider = ({ children }) => {
 
   const removeItemFromCart = async (productId) => {
     let item = getCartItemByProductId(productId);
+    console.log(item)
     if (item.id) {
       return axios
-        .delete(`http://localhost:8080/cartItems/${item.id}`)
+        .delete(`https://rct-101-c4.herokuapp.com/cartItems/${item.id}`)
         .then(() => {
           let updatedCartItems = cartItems.filter((cI) => cI.id !== item.id);
           setCartItems(updatedCartItems);
@@ -45,7 +46,7 @@ export const CartProvider = ({ children }) => {
       let item = cartItems.find((item) => item.productId === productId) || {};
       if (item.id) {
         return axios
-          .patch(`http://localhost:8080/cartItems/${item.id}`, {
+          .patch(`https://rct-101-c4.herokuapp.com/cartItems/${item.id}`, {
             count: newCount,
           })
           .then(({ data }) => {
@@ -65,7 +66,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuth) {
-      axios.get("http://localhost:8080/cartItems").then(({ data }) => {
+      axios.get("https://rct-101-c4.herokuapp.com/cartItems").then(({ data }) => {
         setCartItems(data);
       });
     }
